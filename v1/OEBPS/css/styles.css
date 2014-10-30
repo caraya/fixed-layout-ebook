@@ -1,0 +1,388 @@
+html,body,div,img,p,a,ul,li { margin:0;padding:0; } /* this is not an exhaustive browser reset */
+
+/*
+BODY DECLARATION
+*/
+body {
+    width: 1200px;    /* 1 */
+    height: 1700px; /* 1 */
+    position: relative;
+    font-size: 48px;
+    line-height: 1.5;
+}
+/*
+FONT DECLARATION
+
+I've settled for Fira as my font (see http://www.fontsquirrel.com/fonts/fira-sans for information)
+
+and a set of 4 different weights:
+
+Thin
+Thin Italics
+Semi bold
+Semi bold italics
+*/
+
+@font-face {
+  font-family: 'Fira Thin';
+  src: url('type/FiraSans-Thin.otf') format('opentype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Fira Thin Italic';
+  src: url('type/FiraSans-ThinItalic.otf') format('opentype');
+  font-style: italic;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Fira SemiBold';
+  src: url('type/FiraSans-SemiBold.otf') format('opentype');
+  font-style: normal;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Fira SemiBold Italic';
+  src: url('type/FiraSans-SemiBoldItalic.otf') format('opentype');
+  font-style: italic;
+  font-weight: bold;
+}
+
+/*
+GENERAL FONT-RELATED SELECTORS
+
+2. em translates to italics
+3. strong translates to bold font
+4. define the two ways to call bold+italics (make sure the order doesn't matter)
+5. Set all headers to be bold
+*/
+
+em { /* 2 */
+    font-family: 'Fira Thin Italic';
+}
+
+strong { /* 3 */
+    font-family: 'Fira SemiBold';
+}
+
+em strong,
+strong em { /* 4 */
+    font-family:  'Fira SemiBold Italic';
+}
+
+h1, h2, h3, h4, h5 { /* 5 */
+  font-family: 'Fira SemiBold';
+}
+/*
+IMAGE LAYOUT
+
+We do the following to set up images.
+
+1. Set the positioning of images to be absolute
+2. Set the image size (either full or half the height of the page)
+3. Position the half-sized  image at the top of the screen (top: 0)
+    or at the bottom (top: 850 which is half the height of the page)
+4. Set the z-index position to a negative number to make sure
+     the image will be at the bottom of the stack
+*/
+img .full{
+    position: absolute;    /*1 */
+    height: 1700px; /* 2*/
+    z-index: -1; /* 4 */
+}
+
+img .half-top{
+    position: absolute;    /* 1 */
+    height: 850px; /* 2 */
+    top: 0; /* 3 */
+    z-index: -1; /* 4 */
+}
+
+img .half-bottom{
+    position: absolute;    /*  1 */
+    height: 850px; /* 2 */
+    top: 850; /* 3 */
+    z-index: -1; /* 4 */
+}
+/*
+TWO PAGE SPREAD
+
+We do the following:
+
+1. Assign  overflow and position to left and ride side spreads
+2. Move the image on the right side 100% to the left (left: -100%).
+This will make sure the spread shows the full image
+*/
+.leftside,
+.rightside {
+    width: 1200px;
+    height: 1700px;
+    overflow: hidden; /* 1 */
+    position: relative; /* 1 */
+}
+
+.leftside img,
+.rightside img {
+    position: absolute;
+    height: 1700px;
+    z-index: -1;
+}
+
+.rightside > img {
+    left: -100%;/* 2 */
+}
+
+/*
+BOOK SPECIFIC SELECTORS
+
+Each text section has it's own characteristics and position within the page.  We handle this by using
+page specific classes
+*/
+
+/*
+STYLES USED IN MORE THAN ONE PAGE
+*/
+section.content {
+  font-family: "Fira Thin";
+  position:absolute;
+  margin: 4em;
+}
+
+.content p {
+    font-size: 1em;
+    line-height: 1.5em;
+    -webkit-hyphens:none;
+    margin-bottom: 1em;
+}
+
+blockquote,
+blockquote p {
+  /* Define basic properties here and then refine each blockquote under its respective page */
+  line-height: 1.5;
+  font-size: 70%;
+  width: 80%;
+}
+
+blockquote cite:before {
+  content: "\2014 \2009";
+}
+
+video {
+  /* Give veideo a 1px solid border and center it on the page */
+  border: 1px #f00 solid;
+  margin: 1em auto;
+}
+
+
+/* COVER PAGE */
+.cover h1{
+  position:absolute;
+  color: rgba(0, 139, 139, 0.75);
+  top: 5em;
+  font-size: 40px;
+  font-family: 'Fira SemiBold';
+}
+
+.cover h2 {
+  position: absolute;
+  color: rgba(0, 139, 139, 0.75);
+  top: 10em;
+  left: 6em;
+  font-size: 36px;
+  font-family: 'Fira SemiBold';
+}
+
+/*
+FULL SPREAD P03 - P04 STYLES
+*/
+
+.p03 h2,
+.p04 h2 {
+  font-family: 'Fira SemiBold';
+  color: #dadada;
+}
+
+#p03-sunrise {
+  position:absolute;
+  left: 2em;
+  top: 2em;
+}
+
+#p03-promises {
+  position: absolute;
+  left: 3em;
+  top: 4em;
+  opacity: 0;
+}
+
+#p03-potential {
+  position: absolute;
+  left: 6em;
+  top: 6em;
+}
+
+#p04-dreams {
+  position: absolute;
+  left: 2em;
+  top: 2em;
+  opacity: 0;
+}
+
+#p04-challenges {
+  position: absolute;
+  left: 3em;
+  top: 4em;
+  opacity: 0;
+}
+
+#p04-opportunities {
+  position: absolute;
+  left: 6em;
+  top: 6em;
+  opacity: 0;
+}
+
+/*
+P06 STYLES
+*/
+
+div.p06-text p {
+  font-size: 80%;
+}
+
+div.p06-text + p{
+  margin-top: 5em
+}
+
+/*
+P07 STYLES
+*/
+section.p07 {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+p.p07-text {
+  font-family:  'Fira SemiBold';
+  position: absolute;
+  font-size: 96px;
+  text-align: center;
+  margin-top: 50%;
+}
+
+/*
+P08 STYLES
+*/
+
+section.p08 {
+  margin-top: 0;
+  margin-left: 1em;
+}
+
+div.p08-text {
+  font-size: 75%;
+  width: 80%;
+}
+
+
+/*
+P09 STYLES
+*/
+
+section.p09 {
+  margin-top: 0;
+  margin-left: 2em;
+}
+
+div.p09-text {
+  font-size: 75%;
+  width: 80%;
+}
+
+/*
+P10 STYLES
+*/
+section.p10.content {
+  margin: 4em 1em;
+  font-family:  'Fira SemiBold Italic';
+}
+
+/*
+section.p10.content cite,
+section.p10.content blockquote p {
+  font-size: 70%;
+  width: 80%;
+}
+*/
+
+/*
+P11 STYLES
+*/
+section.p11 {
+  margin-top: 0;
+  margin-left: 2em;
+}
+
+div.p11-text {
+  font-size: 75%;
+  width: 80%;
+}
+
+/*
+P12 STYLES
+*/
+section.p12.content {
+  margin: 4em 1em;
+  font-family:  'Fira SemiBold Italic';
+}
+
+/*
+section.p12.content cite,
+section.p12.content blockquote p {
+  font-size: 70%;
+  width: 80%;
+}
+*/
+
+/*
+P13 STYLES
+*/
+section.p13 {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+p.p13-text {
+  font-family:  'Fira SemiBold';
+  position: absolute;
+  font-size: 96px;
+  text-align: center;
+  margin-top: 50%;
+}
+
+/*
+P14 STYLES
+*/
+
+/* No styles for this page */
+
+/*
+P15 STYLES
+*/
+
+section.p15.content {}
+
+section.p15 div.p15-text {}
+/*
+P16 STYLES
+*/
+
+section.p16.content {}
+
+section.p16 div.p16-text {}
+

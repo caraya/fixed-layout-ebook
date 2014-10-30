@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1">
+  <head>
+    <meta name="dtb:uid" content="http://www.hxa7241.org/articles/content/epup-guide_hxa7241_2007_1.epub" />
+  </head>
+  <docTitle>
+    <text>Fixed Layout EPUB Example</text>
+  </docTitle>
+  <navMap>
+
+    <navPoint id="p1" playOrder="1">
+      <navLabel>
+        <text>Cover</text>
+      </navLabel>
+      <content src="cover.xhtml" />
+
+    </navPoint>
+        <navPoint id="p2" playOrder="2">
+      <navLabel>
+        <text>Copyright Acknowledgements</text>
+      </navLabel>
+      <content src="page01.xhtml" />
+    </navPoint>
+
+    <navPoint id="p3" playOrder="3">
+      <navLabel>
+        <text>Full Image Page</text>
+      </navLabel>
+      <content src="page02.xhtml" />
+    </navPoint>
+
+    <navPoint id="p4" playOrder="4">
+      <navLabel>
+        <text>Two Page Spread</text>
+      </navLabel>
+      <content src="page03.xhtml" />
+    </navPoint>
+
+    <navPoint id="p5" playOrder="5">
+      <navLabel>
+        <text>Pioneer Square Signpost -- Portland Oregon</text>
+      </navLabel>
+      <content src="page06.xhtml" />
+    </navPoint>
+
+    <navPoint id="p6" playOrder="6">
+      <navLabel>
+        <text>What I've learned</text>
+      </navLabel>
+      <content src="page08.xhtml" />
+    </navPoint>
+
+    <navPoint id="p7" playOrder="7">
+      <navLabel>
+        <text>Take Risks</text>
+      </navLabel>
+      <content src="page09.xhtml" />
+    </navPoint>
+
+    <navPoint id="p8" playOrder="8">
+      <navLabel>
+        <text>Be Kind</text>
+      </navLabel>
+      <content src="page10.xhtml" />
+    </navPoint>
+
+    <navPoint id="p9" playOrder="9">
+      <navLabel>
+        <text>Be Creative</text>
+      </navLabel>
+      <content src="page12.xhtml" />
+    </navPoint>
+
+    <navPoint id="p10" playOrder="10">
+      <navLabel>
+        <text>The trip in images</text>
+      </navLabel>
+      <content src="page14.xhtml" />
+    </navPoint>
+
+  </navMap>
+</ncx>
+
